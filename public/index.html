@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>letrl</title>
+	<meta name="description" content="an letr gaem" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link href="main.css" rel="stylesheet" />
+	<style>
+		a:hover {
+			background-color: transparent !important;
+			text-decoration: underline;
+		}
+
+		.monstre-convert:focus {
+			background-color: #ff5555;
+		}
+	</style>
+</head>
+
+<body class="terminal">
+	<div class="container">
+		<hr aria-hidden="true" />
+		<a href="https://code.eutychia.org/kay/letrl" target="_blank" class="btn btn-error btn-ghost btn-block"
+			aria-label="get the source code for this project">get the srouce cod for poject</a>
+		<br />
+		<main>
+			<form id="form">
+				<fieldset>
+					<legend>
+						<h1 aria-label="letrl, an gay letter game">letrl, an gay letr gaem</h1>
+					</legend>
+					<div class="form-group">
+						<label for="letrl_letter" aria-live="polite" id="label"></label>
+						<input type="text" id="letrl_letter" value="" />
+					</div>
+					<div class="form-group" style="text-align: center">
+						<button class="btn btn-default" onclick="letrl_proprietary_logic()" aria-live="polite" id="buttom"></button>
+					</div>
+					<p>
+						<i aria-label="note: letter is randomly selected from bottom keysmashes">note: letter are randonly select
+							fron bottom keysmashs</i>
+					</p>
+				</fieldset>
+			</form>
+		</main>
+		<hr aria-hidden="true" />
+	</div>
+
+	<script>
+		let hasWonned = false;
+		const enmpty = "";
+		let letr = enmpty;
+
+		const keysmashs = ["ghewhweh", "asag"];
+
+		// hlenmpers
+		const getThingyByBeepBoop = (a) => document.getElementById(a); // (obfuscation)
+
+		init = () => {
+			const seed = keysmashs[Math.floor(Math.random() * keysmashs.length)];
+			letr = seed.split("")[Math.floor(Math.random() * seed.length)];
+			const event = window.event;
+			event?.preventDefault();
+			const theBox = getThingyByBeepBoop("letrl_letter");
+			const theLavel = getThingyByBeepBoop("label");
+			const theButton = event?.target || getThingyByBeepBoop("buttom");
+			const notTheValu = theBox.value;
+			theBox.style.background = "none";
+			theBox.setAttribute("placeholder", letr);
+			theBox.value = enmpty;
+			theLavel.setAttribute("aria-label", `type in the letter '${letr}'`);
+			theLavel.innerHTML = `typ in the lete <b>${letr}</b>`;
+			theButton.setAttribute("aria-label", "check answer");
+			theButton.innerText = "go !!1 :D";
+			hasWonned = false;
+		};
+
+		init();
+
+		letrl_proprietary_logic = () => {
+			const event = window.event;
+			event.preventDefault();
+			if (hasWonned) return init();
+			const theBox = getThingyByBeepBoop("letrl_letter");
+			const theButton = event.target;
+			const notTheValu = theBox.value;
+			theBox.style.background = "#50fa7b";
+			if (notTheValu === letr) {
+				theButton.setAttribute(
+					"aria-label",
+					"you won ! click me to start again"
+				);
+				theButton.innerText = "you won !! :3 ^.^ click me to strat agen";
+			} else {
+				theBox.value = letr;
+				theButton.setAttribute(
+					"aria-label",
+					"oh it looks like you were having troubles. so i changed the letter for you to the correct answer. you won ! click me to start again"
+				);
+				theButton.innerText =
+					"o it look like u were havnig troubles :s so i change the ltr for you to corec anwser :D you won !! :3 ^.^ click me to strat agen";
+			}
+			hasWonned = true;
+		};
+	</script>
+</body>
+
+</html>
