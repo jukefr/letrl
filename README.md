@@ -1,9 +1,9 @@
 # [letrl](https://code.juke.fr/kay/letrl)
-(gay) wordle spinoff letter game available on letrl.comfy.center
+(gay) wordle spinoff letter game available on juke.fr/letrl/
 
 ## install
 
-latest version is available at https://letrl.comfy.center/
+latest version is available at https://juke.fr/letrl/
 
 
 ## License
