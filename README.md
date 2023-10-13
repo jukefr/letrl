@@ -1,10 +1,10 @@
 # [letrl](https://codeberg.org/juke/letrl)
-
-(gay) wordle spinoff letter game available on https://letrl.juke.fr/
+(gay) wordle spinoff letter game available on letrl.juke.fr/
 
 ## install
 
 latest version is available at https://letrl.juke.fr/
+
 
 ## Development
 
@@ -16,12 +16,11 @@ $ git clone https://codeberg.org/juke/letrl.git
 
 ## Contributing
 
-More to come later.
+Feel free to contact via the email bellow with a patch or anything.
 
 ### Issues
-
-More to come later.
+Open new issues by mailing [issues+letrl@juke.fr](mailto:issues+letrl@juke.fr)
 
 ---
-
 beep boop
+
